@@ -1,0 +1,15 @@
+{
+  "name": "foodie",
+  "version": "1.0.0",
+  "description": "The solution for the different steps of the exercise app will appear here. Checkout the appropriate branch to see the application in it's continuous stages.",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
