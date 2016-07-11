@@ -2,8 +2,15 @@ const x: string = 'World';
 const list: HTMLElement = document.getElementById('list');
 const nameEl: HTMLInputElement = document.getElementById('newRecipe') as HTMLInputElement;
 const linkEl: HTMLInputElement = document.getElementById('newLink') as HTMLInputElement;
+const submitBtn: HTMLElement = document.getElementById('submitRecipe');
 
-class Recipe {
+interface IRecipe {
+  title: string;
+  link: string;
+}
+
+
+class Recipe implements IRecipe {
   constructor(
     public title: string,
     public link: string,
@@ -47,13 +54,23 @@ function render(): void {
 
 render();
 
+submitBtn.addEventListener('click', (ev: MouseEvent): any => {
+  ev.preventDefault();
+  const title: string = nameEl.value;
+  const link: string = linkEl.value;
+  recipeBook.add(new Recipe(title, link));
+  render();
+  nameEl.value = '';
+  linkEl.value = '';
+});
+
 // function greeter(greeting: string): string {
 //   return 'Hello, ' + greeting;
 // }
 
 // list.innerHTML = (greeter(x));
-nameEl.value = 'Simple Pan-Seared Salmon';
-linkEl.value = 'http://www.thekitchn.com/recipe-simple-pan-seared-salmon-recipes-from-the-kitchn-214529';
+// nameEl.value = 'Simple Pan-Seared Salmon';
+// linkEl.value = 'http://www.thekitchn.com/recipe-simple-pan-seared-salmon-recipes-from-the-kitchn-214529';
 
 enum Ingredients {
   Salt,
