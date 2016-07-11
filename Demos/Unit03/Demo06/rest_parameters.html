@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>ES6/7 Features</h3>
+    <h4>Rest Parameters</h4>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+// Rest Parameter
+// Example 1
+console.log('<--- Rest Parameter: Example 1 --->');
+function argCounter(...args: any[]): void {
+  console.log(args.length);
+}
+
+argCounter();
+argCounter(5);
+argCounter(5, 6, 7);
+
+// Example 2
+console.log('<--- Rest Parameter: Example 2 --->');
+function multiply(multiplier: number, ...args: number[]): number[] {
+  return args.map((element: number) => multiplier * element);
+}
+
+let arr: number[] = multiply(2, 1, 2, 3);
+console.log(arr);
+
+// Spread Operator
+console.log('<----- Spread Operator ----->');
+let parts: string[] = ['shoulders', 'knees'];
+let lyrics: string[] = ['head', ...parts, 'toes'];
+console.log(lyrics);
+
+      </code>
+    </pre>
+  </div>
+  <script src="rest_parameters.js"></script>
+</body>
+</html>

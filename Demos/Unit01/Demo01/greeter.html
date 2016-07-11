@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="greeter.css">
+</head>
+
+<body>
+  <div class="container">
+    <h4>Greeter with TypeScript</h4>
+    <div id="cont"></div>
+    <h4>TS Code</h4>
+    <pre>
+      <code>
+        function greeter(greeting) {
+          'use strict';
+          return 'Hello, ' + greeting;
+        }
+
+        var x = 'World!';
+
+        var cont = document.getElementById('cont');
+
+        cont.innerHTML = (greeter(x));
+      </code>
+    </pre>
+  </div>
+  <script src="greeter.js"></script>
+</body>
+
+</html>

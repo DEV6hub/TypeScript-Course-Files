@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>Modules & Generators</h3>
+    <h4>Generators</h4>
+    <pre>
+      <code>
+function* getNames(): IterableIterator<string> {
+  console.log('2.');
+  yield 'John';
+  console.log('4.');
+  let myValue: string = yield 'Stephanie';
+  console.log(`6, Passed in value: ${myValue}`); // Passed in value: 964
+}
+
+const nameGenerator: IterableIterator<string> = getNames();
+console.log('1.');
+console.log(`3. ${nameGenerator.next().value}`); // 3. John
+console.log(`5. ${nameGenerator.next().value}`); // 5. Stephanie
+console.log(`7. Done? ${nameGenerator.next(964).done}`); // 7. Done? true
+
+      </code>
+    </pre>
+  </div>
+  <script src="generators.js"></script>
+</body>
+</html>

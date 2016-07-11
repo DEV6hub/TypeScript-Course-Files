@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+
+<body>
+  <div class="container">
+    <h3>ES6/7 Features</h3>
+    <h4>Class Decorators</h4>
+    <pre>
+      <code>
+// Class Decorator
+@sealed
+class Greeter {
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
+  greet(): void {
+    console.log(`Hello, ${this.greeting}`);
+  }
+}
+
+function sealed(constructor: Function): void {
+  Object.seal(constructor);
+  Object.seal(constructor.prototype);
+}
+
+let greeter: Greeter = new Greeter('world');
+console.log(greeter);
+
+      </code>
+    </pre>
+  </div>
+  <script src="class_decorators.js"></script>
+</body>
+
+</html>

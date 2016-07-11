@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h4>TypeScript Features</h4>
+    <h5>Symbol</h5>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+const lion: symbol = Symbol('lion');
+const tiger: symbol = Symbol('tiger');
+const bear: symbol = Symbol('bear');
+
+
+let animals = {
+  [lion]: 'lion',
+  [tiger]: 'tiger',
+  [bear]: 'bear'
+};
+
+console.log(animals[lion]);
+console.log(animals[tiger]);
+console.log(animals[bear]);
+
+      </code>
+    </pre>
+  </div>
+  <script src="symbol.js"></script>
+</body>
+</html>

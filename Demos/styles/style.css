@@ -1,0 +1,12 @@
+*{
+  font-family: 'HelveticaNeue-Light', "Helvetica Neue", Arial, sans-serif;
+  font-weight: 100;
+}
+
+.logo{
+  width:100px;
+}
+
+.title{
+  text-align: center;
+}

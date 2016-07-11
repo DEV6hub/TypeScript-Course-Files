@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h1>Classes</h1>
+    <h4>Private & Public Parameter Properties</h4>
+    <ul>
+      <li>Public: allows access from anywhere</li>
+      <li>Private: can only be accessed within its own class</li>
+      <li>Protected: can only be accessed within own class and subclasses</li>
+    </ul>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+class Animal {
+  constructor(
+    protected age: number,
+    public firstName: string,
+    private lastName: string
+  ) {}
+}
+
+let dog: Animal = new Animal(12, 'James', 'Brown');
+console.log(dog);
+
+      </code>
+    </pre>
+  </div>
+  <script src="public_private.js"></script>
+</body>
+</html>

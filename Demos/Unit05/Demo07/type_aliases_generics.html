@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+  <h3>The Type Aliases & Generics</h3>
+    <h4>Type Assertion</h4>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+// Type Aliases
+
+type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;
+
+function getName(n: NameOrResolver): void {
+  if (typeof n === 'string') {
+    console.log('Type Aliases - This is a string:', n);
+  } else {
+    alert(`Type Aliases - This is something else: ${n}`);
+  }
+}
+getName('Jane');
+getName(90); // Error
+
+// Type Generics
+
+function identity<T>(arg: T): T {
+  return arg;
+};
+console.log(`Type Generics. This is a number ${identity(1000)}`);
+
+      </code>
+    </pre>
+  </div>
+  <script src="type_aliases_generics.js"></script>
+</body>
+</html>
+

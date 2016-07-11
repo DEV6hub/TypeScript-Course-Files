@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+
+<body>
+  <div class="container">
+    <h3>ES6/7 Features</h3>
+    <h4>Method Decorators</h4>
+    <pre>
+      <code>
+class Greeter {
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
+
+  @enumerable(false)
+  greet(): void {
+    console.log(`Hello, ${this.greeting}`);
+  }
+}
+
+function enumerable(value: boolean): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void {
+  return function(target: any, propertyKey: string, descriptor: PropertyDescriptor): void {
+    descriptor.enumerable = value;
+  };
+}
+
+let x: Greeter = new Greeter(`world`);
+console.log(x);
+
+      </code>
+    </pre>
+  </div>
+  <script src="method_decorators.js"></script>
+</body>
+
+</html>

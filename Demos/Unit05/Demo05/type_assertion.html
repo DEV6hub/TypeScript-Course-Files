@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>The Type System</h3>
+    <h4>Type Assertion</h4>
+    <h3>TS Code</h3>
+<pre>
+  <code>
+class Person {
+  constructor(public givenName: string, public familyName: string) {}
+
+  get name(): any {
+    return `${this.givenName} ${this.familyName}`;
+  }
+}
+
+const person: Person = new Person('John', 'Doe');
+const personFromJson: Person = <Person>JSON.parse(
+  '{ "givenName": "John", "familyName": "Doe" }');
+
+console.log(person.name); // John Doe
+console.log(personFromJson.name); // Returns undefined
+
+  </code>
+</pre>
+  </div>
+  <script src="type_assertion.js"></script>
+</body>
+</html>
+

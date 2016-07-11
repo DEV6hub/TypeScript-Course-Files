@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>The Type System</h3>
+    <h4>Union Types</h4>
+    <h3>Am I a box?</h3>
+    <div id="square"></div>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+// Union Types
+let inner: boolean | number | string;
+inner = "I'm a box";
+inner = true;
+inner = 10000;
+
+      </code>
+    </pre>
+  </div>
+  <script src="union_type.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h4>TypeScript Features</h4>
+    <h5>Mixins</h5>
+    <h1 id="featureDiv"></h1>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+let featureDiv: HTMLElement = document.getElementById('featureDiv');
+
+class Greeter {
+  message: string;
+  greet(): string {
+    return this.message;
+  }
+}
+
+class TakesBreaks {
+  onBreak: boolean;
+  startBreak(): void {
+    this.onBreak = true;
+  }
+  endBreak(): void {
+    this.onBreak = false;
+  }
+}
+
+class BreakTakingGreeter implements Greeter, TakesBreaks {
+  // Greeter
+  message: string = 'Hello';
+  greet: () => string;
+  // TakesBreaks
+  onBreak: boolean = false;
+  startBreak: () => void;
+  endBreak: () => void;
+
+  constructor() {
+    setInterval(() => featureDiv.innerHTML = this.interact(), 500);
+  }
+
+  interact(): string {
+    if (!this.onBreak) {
+      return this.greet();
+    }
+    return "I'm on Break";
+  }
+}
+
+function applyMixins(derivedCtor: any, baseCtors: any[]): any {
+  baseCtors.forEach((baseCtor: any) => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach((name: any) => {
+      derivedCtor.prototype[name] = baseCtor.prototype[name];
+    });
+  });
+}
+
+applyMixins(BreakTakingGreeter, [Greeter, TakesBreaks]);
+
+let halfTimeWorker: BreakTakingGreeter = new BreakTakingGreeter();
+
+setInterval(() => halfTimeWorker.onBreak ? halfTimeWorker.endBreak() : halfTimeWorker.startBreak(), 1000);
+
+      </code>
+    </pre>
+  </div>
+  <script src="mixins.js"></script>
+</body>
+</html>

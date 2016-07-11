@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+
+<body>
+  <div class="container">
+    <h3>ES6/7 Features</h3>
+    <h4>Property Decorators</h4>
+    <pre>
+      <code>
+function PropertyDecorator(target: Object, propertyKey: string | symbol): void {
+  console.log('PropertyDecorator called on: ', target, propertyKey);
+}
+
+class PropertyDecoratorExample {
+  @PropertyDecorator
+  name: string;
+};
+
+      </code>
+    </pre>
+  </div>
+  <script src="property_decorator.js"></script>
+</body>
+
+</html>

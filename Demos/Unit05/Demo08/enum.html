@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>The Type System</h3>
+    <h4>Enum & Const Enum</h4>
+    <pre>
+      <code>
+// Enum
+enum CardSuit {
+    Clubs,
+    Diamonds,
+    Hearts,
+    Spades
+}
+
+// Sample usage
+console.log('<---Card Suit--->');
+console.log(CardSuit);
+
+console.log('<---Where is Diamonds?--->');
+let card: CardSuit = CardSuit.Diamonds;
+console.log(card);
+
+// Const Enum
+const enum Direction {
+  Up,
+  Down,
+  Left,
+  Right
+}
+
+let up: Direction = Direction.Up;
+
+console.log('<---Directions--->');
+console.log(up);
+
+      </code>
+    </pre>
+  </div>
+  <script src="enum.js"></script>
+</body>
+</html>
+

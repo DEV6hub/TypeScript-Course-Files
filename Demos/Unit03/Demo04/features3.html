@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h4>TypeScript Features</h4>
+    <h5>Promises</h5>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+let wait1000: Promise<void> = new Promise<void>((resolve: any, reject: any) => {
+  setTimeout(resolve, 1000);
+});
+
+wait1000.then(() => console.log('Yay!'));
+
+
+function someAsyncThing(): Promise<void> {
+  return new Promise<void>((resolve: any, reject: any) => {
+    resolve();
+  });
+};
+
+function someOtherAsyncThing(): Promise<void> {
+  return new Promise<void>((resolve: any, reject: any) => {
+    reject('something went wrong');
+  });
+};
+
+someAsyncThing()
+  .then(() => someOtherAsyncThing())
+  .catch((error: string) => console.log('oh no', error));
+
+      </code>
+    </pre>
+  </div>
+  <script src="features3.js"></script>
+</body>
+</html>

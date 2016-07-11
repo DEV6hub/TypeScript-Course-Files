@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+
+<body>
+  <div class="container">
+    <h3>ES6/7 Features</h3>
+    <h4>Parameter Decorators</h4>
+    <pre>
+      <code>
+class Foo {
+  public foo( @logParameter foo: string): void {
+    console.log('bar');
+  }
+  public foobar(foo: string, @logParameter bar: string): void {
+    console.log('foobar');
+  }
+}
+
+function logParameter(target: any, key: string, index: number): void {
+  let metadataKey: string = `log_${key}_parameters`;
+  if (Array.isArray(target[metadataKey])) {
+    target[metadataKey].push(index);
+  } else {
+    target[metadataKey] = [index];
+  }
+}
+
+let x: Foo = new Foo();
+console.log(x);
+
+      </code>
+    </pre>
+  </div>
+  <script src="parameter_decorator.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h4>TypeScript Features</h4>
+    <h5>Default Parameters</h5>
+    <p>Open Console and click on any Item</p>
+    <div id="list"></div>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+// Let
+let list: HTMLElement = document.getElementById('list');
+
+for (var i: number = 1; i <= 5; i++) {
+  var item: HTMLLIElement = document.createElement('li');
+
+  item.appendChild(document.createTextNode('Item ' + i));
+
+  item.onclick = function (event: MouseEvent): void {
+    console.log('Item ' + i + ' is clicked.');
+  };
+
+  list.appendChild(item);
+}
+
+// Const
+const numb: number = 7;
+// numb = 20; // This will result in an Error:
+console.log('my favorite number is: ' + numb);
+
+      </code>
+    </pre>
+  </div>
+  <script src="let_const.js"></script>
+</body>
+</html>

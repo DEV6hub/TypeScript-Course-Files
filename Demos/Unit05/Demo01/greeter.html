@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h4>Greeter Demo 3</h4>
+    <div id="cont"></div>
+    <h4>TS Code</h4>
+    <pre>
+      <code>
+interface Greeting {
+  parameter: string;
+}
+
+function greeter(greeting: Greeting): string {
+  return `Hello, ${greeting.parameter}`;
+}
+
+let x: Greeting = {parameter: 'World'};
+
+let cont: HTMLElement = document.getElementById('cont');
+cont.innerHTML = (greeter(x));
+
+      </code>
+    </pre>
+  </div>
+  <script src="greeter.js"></script>
+</body>
+</html>

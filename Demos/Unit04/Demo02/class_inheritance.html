@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h1>Classes</h1>
+    <h4>Class Inheritance</h4>
+<img src="http://assets.sbnation.com/polygon/polygon-mark.png" alt="">
+<h3>TS Code</h3>
+<pre>
+<code>
+// Polygon
+class Polygon {
+  name: string;
+  height: number;
+  width: number;
+
+  constructor(height: number, width: number) {
+    this.name = 'Polygon';
+    this.height = height;
+    this.width = width;
+  }
+
+  sayName(): void {
+    console.log(`Hi, I am a ${this.name}.`);
+  }
+
+  sayHistory(): void {
+    console.log(`"Polygon" is derived from the Greek polus (many)
+      and gonia (angle).`);
+  }
+
+}
+
+let p: any = new Polygon(300, 400);
+p.sayName();
+console.log(`The width of this polygon is ${p.width}`);
+
+// Square
+class Square extends Polygon {
+  constructor(length: any) {
+    super(length, length);
+    this.name = 'Square';
+  }
+
+  get area(): number {
+    return this.height * this.width;
+  }
+
+  set area(value: number) {
+    this.height = Math.sqrt(value);
+    this.width = Math.sqrt(value);
+  }
+}
+
+let s: Square = new Square(5);
+
+s.sayName();
+console.log(`The area of this square is ${s.area}`);
+
+s.area = 100;
+console.log(`The height of this square is ${s.height}`);
+
+// Rectangle
+class Rectangle extends Polygon {
+  constructor(height: number, width: number) {
+    super(height, width);
+    this.name = 'Rectangle';
+  }
+
+  sayName(): void {
+    console.log('Sup! My name is ', this.name + '.');
+    super.sayHistory();
+  }
+}
+
+let r: Rectangle = new Rectangle(50, 60);
+r.sayName();
+
+</code>
+</pre>
+</div>
+  <script src="class_inheritance.js"></script>
+</body>
+</html>

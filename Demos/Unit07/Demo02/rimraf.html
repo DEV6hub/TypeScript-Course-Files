@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+
+<body>
+  <div class="container">
+    <h3>Representing JavaScript Libraries</h3>
+    <h4>Rim Raf</h4>
+    <pre>
+      <code>
+// rimraf.d.ts
+declare module 'rimraf' {
+  function rimraf(path: string, callback: (error: Error) => void): void;
+  // Merge a function with a module, to define our sync module
+  module rimraf {
+    export function sync(path: string): void;
+  }
+  export = rimraf;
+}
+
+//rimraf-tests.ts
+///<reference path="rimraf.d.ts"/>
+
+import * as rimraf from 'rimraf';
+
+rimraf('C:\\Temp', (error: Error) => { /*...*/ });
+rimraf.sync('C:\\Temp');
+
+      </code>
+    </pre>
+  </div>
+  <script src="rimraf-tests.js"></script>
+</body>
+
+</html>

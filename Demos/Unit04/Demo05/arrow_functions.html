@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h1>Classes</h1>
+    <h4>Arrow Functions</h4>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+class Person {
+  constructor(public name: string) { }
+
+  sayHello(friends: string[]): void {
+    // this will work
+    friends.forEach((friend: string) => {
+      console.log(`${this.name} says hello to ${friend}`);
+    });
+
+    // this will not
+    friends.forEach(function(friend: string) {
+      console.log(`${this.name} says hello to ${friend}`);
+    });
+  }
+};
+
+const jane = new Person('Jane');
+const friends: string[] = ['Bob', 'Sally'];
+jane.sayHello(friends);
+
+
+      </code>
+    </pre>
+  </div>
+  <script src="arrow_functions.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>Representing JavaScript Libraries</h3>
+    <h4>Definitely Typed</h4>
+    <div>
+      <button id="clickMe" class="btn btn-default">Click me</button>
+    </div>
+    <pre>
+      <code>
+/// <reference path="jquery/jquery.d.ts" />
+$('#clickMe').on('click', 'button', function(event: JQueryEventObject): void {
+  console.log('hello world');
+});
+
+      </code>
+    </pre>
+  </div>
+  <script src="def_typed.js"></script>
+</body>
+</html>

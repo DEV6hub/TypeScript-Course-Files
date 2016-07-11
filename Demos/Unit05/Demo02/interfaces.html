@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TypeScript Fundamentals</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"></link>
+</head>
+<body>
+  <div class="container">
+    <h3>The Type System</h3>
+    <h4>Interfaces</h4>
+    <div id="square"></div>
+    <h3>TS Code</h3>
+    <pre>
+      <code>
+interface SquareConfig {
+  color?: string;
+  width?: number;
+}
+
+interface Square {
+  color: string;
+  area: number;
+}
+
+function createSquare(config: SquareConfig): Square {
+  let newSquare: Square = { color: 'red', area: 10000 };
+  if (config.color) {
+    newSquare.color = config.color;
+  }
+  if (config.width) {
+    newSquare.area = config.width * config.width;
+  }
+  return newSquare;
+}
+
+let squareStyle: Square = createSquare({});
+console.log(squareStyle);
+
+let square: HTMLElement = document.getElementById('square');
+
+square.innerHTML = squareStyle.color;
+square.style.background = squareStyle.color;
+
+let squareRoot: number = Math.sqrt(squareStyle.area);
+let sr: string = `${squareRoot}px`;
+square.style.width = sr;
+square.style.height = sr;
+
+      </code>
+    </pre>
+  </div>
+  <script src="interfaces.js"></script>
+</body>
+</html>

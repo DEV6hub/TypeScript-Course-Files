@@ -1,0 +1,16 @@
+{
+  "name": "typescript-intro-demos",
+  "description": "Dev6's Course, Introduction to TypeScript",
+  "repository": "https://github.com/NewTorontoGroup/TypeScript-Courseware",
+  "README": "README.txt",
+  "license": "AFL-1.1",
+  "scripts": {
+    "build": "npm install && tsc --watch"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.1.0",
+    "syntaxhighlighter": "^4.0.1",
+    "react": "^15.2.1"
+  }
+}
