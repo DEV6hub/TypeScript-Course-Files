@@ -10,5 +10,6 @@ let animals = {
 };
 
 console.log(animals[lion]);
+console.log(animals[Symbol('lion')]); // undefined
 console.log(animals[tiger]);
 console.log(animals[bear]);

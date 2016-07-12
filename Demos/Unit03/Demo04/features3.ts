@@ -5,9 +5,9 @@ let wait1000: Promise<void> = new Promise<void>((resolve: any, reject: any) => {
 wait1000.then(() => console.log('Yay!'));
 
 
-function someAsyncThing(): Promise<void> {
-  return new Promise<void>((resolve: any, reject: any) => {
-    resolve();
+function someAsyncThing(): Promise<string> {
+  return new Promise<string>((resolve: any, reject: any) => {
+    resolve('Hello!');
   });
 };
 
@@ -18,5 +18,5 @@ function someOtherAsyncThing(): Promise<void> {
 };
 
 someAsyncThing()
-  .then(() => someOtherAsyncThing())
+  .then((hello) => someOtherAsyncThing())
   .catch((error: string) => console.log('oh no', error));

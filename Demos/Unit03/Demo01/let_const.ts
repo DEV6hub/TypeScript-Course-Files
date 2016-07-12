@@ -1,8 +1,8 @@
 // Let
 let list: HTMLElement = document.getElementById('list');
 
-for (var i: number = 1; i <= 5; i++) {
-  var item: HTMLLIElement = document.createElement('li');
+for (let i: number = 1; i <= 5; i++) {
+  let item: HTMLLIElement = document.createElement('li');
 
   item.appendChild(document.createTextNode('Item ' + i));
 
