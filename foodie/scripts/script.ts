@@ -1,10 +1,16 @@
+/// <reference path="../typings/index.d.ts" />
+
 // const x: string = 'World';
 const mockTitle: string = 'Simple Pan-Seared Salmon';
 const mockLink: string = 'http://www.thekitchn.com/recipe-simple-pan-seared-salmon-recipes-from-the-kitchn-214529';
-const list: HTMLElement = document.getElementById('list');
-const nameEl: HTMLInputElement = document.getElementById('newRecipe') as HTMLInputElement;
-const linkEl: HTMLInputElement = document.getElementById('newLink') as HTMLInputElement;
-const submitBtn: HTMLElement = document.getElementById('submitRecipe');
+// const list: HTMLElement = document.getElementById('list');
+const list: JQuery = $('#list');
+// const nameEl: HTMLInputElement = document.getElementById('newRecipe') as HTMLInputElement;
+const nameEl: JQuery = $('#newRecipe');
+// const linkEl: HTMLInputElement = document.getElementById('newLink') as HTMLInputElement;
+const linkEl: JQuery = $('#newLink');
+// const submitBtn: HTMLElement = document.getElementById('submitRecipe');
+const submitBtn: JQuery = $('#submitRecipe');
 
 function recipeDefaults(title: string, link: string): (target: Function) => void {
   return function(target: Function): void {
@@ -61,29 +67,27 @@ const recipeBook: RecipeBook = new RecipeBook();
 recipeBook.add(new Recipe());
 
 function render(): void {
-  list.innerHTML = recipeBook.displayRecipes().join(' ');
+  list.html(recipeBook.displayRecipes().join(' '));
 }
 
 render();
 
-submitBtn.addEventListener('click', (ev: MouseEvent): void => {
+submitBtn.on('click', (ev: JQueryEventObject): void => {
   ev.preventDefault();
-  const title: string = nameEl.value;
-  const link: string = linkEl.value;
+  const title: string = nameEl.val();
+  const link: string = linkEl.val();
   const recipe: Recipe = new Recipe();
   recipe.title = title;
   recipe.link = link;
   recipeBook.add(recipe);
   render();
-  nameEl.value = '';
-  linkEl.value = '';
+  nameEl.val('');
+  linkEl.val('');
 });
 
-list.addEventListener('click', (ev: any) => {
-  if (ev.target && ev.target.matches('.delete')) {
-    recipeBook.remove(ev.target.dataset.id);
-    render();
-  }
+list.on('click', '.delete', (ev: JQueryEventObject) => {
+  recipeBook.remove($(ev.target).data('id'));
+  render();
 });
 
 // function greeter(greeting: string): string {
@@ -111,7 +115,7 @@ const ingredientsList: string[] = [...ingredients1, ...ingredients2];
 
 console.log('Number of Ingredients:', ingredientsList.length);
 
-const cook: {firstName: string, lastName: string, spouse: {firstName: string, lastName: string}} = {
+const cook: { firstName: string, lastName: string, spouse: { firstName: string, lastName: string } } = {
   firstName: 'John',
   lastName: 'Doe',
   spouse: {
