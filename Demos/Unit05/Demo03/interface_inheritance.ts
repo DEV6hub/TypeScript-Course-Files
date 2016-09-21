@@ -44,7 +44,7 @@ square.style.width = sr;
 square.style.height = sr;
 
 // Border Style
-let borderStyle: BorderConfig = createBorder();
+let borderStyle: BorderConfig = createBorder(square);
 console.log(borderStyle);
 
 // Add styles to square
